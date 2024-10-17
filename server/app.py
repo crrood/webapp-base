@@ -4,7 +4,10 @@ import os
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
+
 from resources.Entity import Entity, EntityList
+import utils.db as db
+
 
 app = Flask(__name__)
 app.config["JSON_SORT_KEYS"] = False

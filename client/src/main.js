@@ -11,7 +11,7 @@ app.use(router)
 
 // global variables
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost'
+  baseURL: 'http://server:5000'
   // baseURL: 'https://get.geojs.io/v1/ip'
 })
 app.provide('axios', axiosInstance)

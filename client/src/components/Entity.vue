@@ -46,12 +46,10 @@
 </template>
 
 <script setup>
-import { useAuth0 } from '@auth0/auth0-vue';
 import { inject, reactive, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const auth0 = useAuth0();
 
 // reactive state
 const state = reactive({
@@ -62,11 +60,6 @@ const state = reactive({
       fullsize: ''
     }
   },
-  user: auth0.user
-});
-
-const characterOwnedByUser = computed(() => {
-  return state.user && state.character.auth0Id === state.user.sub
 });
 
 // initialize
