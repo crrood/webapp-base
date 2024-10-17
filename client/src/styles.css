@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GENERAL STYLING */
+a {
+  @apply font-bold hover:text-slate-200;
+}
+
+/* PLAYER PROFILE */
+input {
+  @apply accent-parchment bg-transparent rounded border-b-2 border-b-primary focus:border-accent;
+}
+
+input[type='number'] {
+  @apply text-5xl;
+}
+
+textarea {
+  @apply accent-parchment bg-parchment rounded-sm border-primary focus:border-accent;
+}
+
+:disabled {
+  @apply border-transparent;
+}
+
+input[type='number']:disabled::-webkit-inner-spin-button, input[type='number']:disabled::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number']:disabled {
+  -moz-appearance: textfield;
+}
+
+label {
+  @apply font-bold;
+}
+
+/* CUSTOM CLASSES */
+.btn-primary {
+  @apply bg-accent hover:bg-accent-dark px-4 py-3 rounded-full text-white font-rise-of-kingdom font-bold;
+}
+
+.btn-warning {
+  @apply bg-orange-500 hover:bg-orange-600 px-4 py-3 rounded-full text-white font-rise-of-kingdom font-bold;
+}
+
+/* FONTS */
+@font-face {
+  font-family: "Beyond Wonderland";
+  src: url('assets/fonts/BeyondWonderland.ttf');
+}
+
+.font-beyond-wonderland {
+  font-family: "Beyond Wonderland";
+}
+
+@font-face {
+  font-family: "Black Chancery";
+  src: url('assets/fonts/BlackChancery.ttf');
+}
+
+.font-black-chancery {
+  font-family: "Black Chancery";
+}
+
+@font-face {
+  font-family: "Rise of Kingdom";
+  src: url('assets/fonts/RiseOfKingdom.ttf');
+}
+
+.font-rise-of-kingdom {
+  font-family: "Rise of Kingdom";
+  letter-spacing: 0.025em;
+}

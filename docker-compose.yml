@@ -1,0 +1,49 @@
+services:
+  server:
+    image: python:3.10-slim
+    build:
+      context: ./server
+    env_file:
+      - .env
+    volumes:
+      - ./server/:/server
+    stop_signal: SIGINT
+    depends_on:
+      - mongodb
+      - caddy
+    networks:
+      - internal
+
+  mongodb:
+    image: mongo:5.0
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - internal
+    env_file:
+      - .env
+
+  caddy:
+    image: caddy:2.4.6
+    ports:
+      - 443:443
+      - 80:80
+      - 8080:80
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy:/data
+    networks:
+      - internal
+      - external
+
+volumes:
+  mongodb:
+    external: true
+  caddy:
+    external: true
+
+networks:
+  external:
+    internal: false
+  internal:
+    external: false

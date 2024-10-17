@@ -1,0 +1,24 @@
+{
+  "name": "group-finder",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@auth0/auth0-vue": "^1.0.1",
+    "axios": "^1.7.7",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.0.24",
+    "vite": "^5.4.9"
+  }
+}
