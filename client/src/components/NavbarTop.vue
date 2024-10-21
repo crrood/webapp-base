@@ -3,7 +3,7 @@
     aria-label="main navigation">
     <div class="">
       <router-link class="" to="/">
-        <img class="w-24 h-24" src="https://loremflickr.com/96/96">
+        <img class="w-24 h-24" src="https://placebear.com/96/96">
       </router-link>
     </div>
 
