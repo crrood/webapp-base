@@ -21,7 +21,7 @@ services:
     env_file:
       - .env
     volumes:
-     - ./client/:/client
+      - ./client/:/client
     stop_signal: SIGTERM
     depends_on:
       - caddy
@@ -39,16 +39,16 @@ services:
 
   caddy:
     image: caddy:2.4.6
-    ports:
-    # Only testing ports for now
-      - 8080:8080
-      - 8081:8081
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy:/data
     networks:
       - internal
       - external
+    ports:
+      # Only testing ports for now
+      - 8080:8080
+      - 8081:8081
 
 volumes:
   mongodb:

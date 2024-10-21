@@ -1,8 +1,9 @@
+import axios from 'axios'
 import { createApp } from 'vue'
+
 import App from './App.vue'
 import router from './router.js'
 import './styles.css'
-import axios from 'axios'
 
 const app = createApp(App)
 
@@ -11,8 +12,7 @@ app.use(router)
 
 // global variables
 const axiosInstance = axios.create({
-  baseURL: 'http://server:5000'
-  // baseURL: 'https://get.geojs.io/v1/ip'
+  baseURL: 'http://localhost:5000'
 })
 app.provide('axios', axiosInstance)
 
