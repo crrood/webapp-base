@@ -12,7 +12,7 @@ app.use(router)
 
 // global variables
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: 'http://localhost:8081'
 })
 app.provide('axios', axiosInstance)
 
