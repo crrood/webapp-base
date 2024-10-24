@@ -2,7 +2,6 @@
 
 FROM node:22.9-slim
 WORKDIR /client
-COPY package.json package.json
-RUN npm install
 COPY . .
+RUN npm install
 CMD ["npm", "run", "dev", "--", "--host"]
