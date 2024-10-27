@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex gap-4 p-2 bg-primary font-rise-of-kingdom text-white" role="navigation"
+  <nav class="flex gap-4 p-2 bg-primary text-white" role="navigation"
     aria-label="main navigation">
     <div class="">
       <router-link class="" to="/">
@@ -9,7 +9,7 @@
 
     <div class="flex justify-start place-items-center gap-8 text-2xl">
       <router-link class="" to="/entities">
-        EntityList
+        WebApp
       </router-link>
     </div>
   </nav>

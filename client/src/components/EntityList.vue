@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-parchment">
-    <EntityListEntry v-for="playerCharacter in state.playerCharacters" :key="playerCharacter._id.$oid"
-      :playerCharacter="playerCharacter" />
+  <div class="bg-primary">
+    <EntityListEntry v-for="entity in state.entities" :key="entity._id.$oid"
+      :entity="entity" />
   </div>
   <!-- Previous / next page buttons -->
   <!-- Icons from https://www.streamlinehq.com/icons/streamline-flat-free -->
@@ -22,11 +22,11 @@
 </template>
 
 <script setup>
-import { reactive, inject, watch } from 'vue';
+import { inject, reactive, watch } from 'vue';
 import EntityListEntry from './EntityListEntry.vue';
 
 const state = reactive({
-  playerCharacters: [],
+  entities: [],
   pageNumber: 0
 })
 
@@ -34,21 +34,21 @@ watch(() => state.pageNumber, () => {
   if (state.pageNumber < 0) {
     state.pageNumber = 0;
   }
-  getPlayerCharacterList(state.pageNumber);
+  getEntityList(state.pageNumber);
 });
 
 const axios = inject('axios');
-function getPlayerCharacterList(pageNumber) {
-  const path = '/playerCharacters?page=' + pageNumber
+function getEntityList(pageNumber) {
+  const path = '/entities?page=' + pageNumber
   axios.get(path)
     .then(res => {
-      state.playerCharacters = res.data;
+      state.entities = res.data;
     })
     .catch(error => {
       console.error(error);
     })
 }
 
-getPlayerCharacterList(state.pageNumber);
+getEntityList(state.pageNumber);
 
 </script>
