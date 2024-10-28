@@ -8,6 +8,7 @@ from flask import Response, jsonify, make_response
 from pymongo import MongoClient
 
 DATABASE = "mongoDatabase"
+ITEMS_PER_PAGE = 10
 
 
 # connect to DB
@@ -41,9 +42,8 @@ def query_collection(collection: str, page_number: int) -> Response:
     """
     client = get_collection(collection)
 
-    items_per_page = 10
     offset = page_number * items_per_page
-    results = client.find(limit=10, skip=offset)
+    results = client.find(limit=ITEMS_PER_PAGE, skip=offset)
 
     result_array = []
     for result in results:
@@ -137,7 +137,7 @@ def upsert_document_by_id(collection: str, data: dict, id: str) -> Response:
 
 
 def reset() -> str:
-    """Drop the DB and refill with test data"""
+    """Drop the DB and refill with test data from utils/testData/entity.json"""
     client = get_client()
     client.drop_database(DATABASE)
 
@@ -146,8 +146,8 @@ def reset() -> str:
         sample_data = json.load(f)
 
     client = get_database()
-    for character in sample_data:
-        result = client["entities"].insert_one(character)
+    for entity in sample_data:
+        result = client["entities"].insert_one(entity)
 
     return f"db reset - test entity id = {result.inserted_id}"
 
