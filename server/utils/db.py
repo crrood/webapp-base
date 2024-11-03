@@ -42,7 +42,7 @@ def query_collection(collection: str, page_number: int) -> Response:
     """
     client = get_collection(collection)
 
-    offset = page_number * items_per_page
+    offset = page_number * ITEMS_PER_PAGE
     results = client.find(limit=ITEMS_PER_PAGE, skip=offset)
 
     result_array = []
