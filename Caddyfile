@@ -2,14 +2,14 @@
 	log default {
 		output stdout
 		format json
-		level DEBUG
+		level INFO
 	}
 }
 
-http://127.0.0.1:8080 http://localhost:8080 {
+{$VITE_SERVER_URL}:8080 http://127.0.0.1:8080 http://localhost:8080 {
 	reverse_proxy client:5173
 }
 
-http://127.0.0.1:8081 http://localhost:8081 {
+{$VITE_SERVER_URL}:8081 http://127.0.0.1:8081 http://localhost:8081 {
 	reverse_proxy server:8000
 }

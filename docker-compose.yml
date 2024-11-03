@@ -39,6 +39,8 @@ services:
 
   caddy:
     image: caddy:2.4.6
+    env_file:
+      - .env
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy:/data
