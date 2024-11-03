@@ -4,19 +4,20 @@
       :entity="entity" />
   </div>
   <!-- Previous / next page buttons -->
-  <!-- Icons from https://www.streamlinehq.com/icons/streamline-flat-free -->
-  <div class="flex grow justify-center gap-4">
+  <!-- Icons from https://www.flaticon.com/uicons/get-started -->
+  <!-- Need to be attributed if I end up releasing this -->
+  <div class="flex grow justify-center gap-10">
     <button @click="state.pageNumber = 0">
-      <img src="../assets/icons/arrow-first.svg" class="">
+      <img  class="w-10" src="../assets/icons/uicons-regular-straight/svg/fi-rs-arrow-to-left.svg">
     </button>
     <button @click="state.pageNumber = state.pageNumber - 1">
-      <img src="../assets/icons/arrow-left.svg" class="">
+      <img  class="w-10" src="../assets/icons/uicons-regular-straight/svg/fi-rs-arrow-left.svg">
     </button>
     <button @click="state.pageNumber = state.pageNumber + 1">
-      <img src="../assets/icons/arrow-right.svg" class="">
+      <img  class="w-10" src="../assets/icons/uicons-regular-straight/svg/fi-rs-arrow-right.svg">
     </button>
     <button @click="state.pageNumber = 0">
-      <img src="../assets/icons/arrow-last.svg" class="">
+      <img  class="w-10" src="../assets/icons/uicons-regular-straight/svg/fi-rs-arrow-to-right.svg">
     </button>
   </div>
 </template>
