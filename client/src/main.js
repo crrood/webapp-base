@@ -12,7 +12,7 @@ app.use(router)
 
 // global variables
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_SERVER_URL + ':8081'
+  baseURL: import.meta.env.VITE_SERVER_URL + '/api/',
 })
 app.provide('axios', axiosInstance)
 

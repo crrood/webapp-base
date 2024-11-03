@@ -6,10 +6,11 @@
 	}
 }
 
-{$VITE_SERVER_URL}:8080 http://127.0.0.1:8080 http://localhost:8080 {
+{$VITE_SERVER_URL},
+http://127.0.0.1:8080,
+http://localhost:8080 {
+	handle_path /api/* {
+		reverse_proxy server:8000
+	}
 	reverse_proxy client:5173
-}
-
-{$VITE_SERVER_URL}:8081 http://127.0.0.1:8081 http://localhost:8081 {
-	reverse_proxy server:8000
 }
