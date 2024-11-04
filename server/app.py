@@ -20,7 +20,7 @@ logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 # add REST resources
 api.add_resource(EntityList, "/entities")
-api.add_resource(Entity, "/entities/<string:entity_id>")
+api.add_resource(Entity, "/entities/<string:resource_id>")
 
 
 # landing page
