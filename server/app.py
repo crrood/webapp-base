@@ -1,12 +1,12 @@
-import logging
+import json
 import os
+import logging
 
 import utils.db as db
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 
-# TODO: import resources dynamically from resources folder using importlib
 from resources.ResourceFactory import ResourceFactory, ResourceListFactory
 
 app = Flask(__name__)
@@ -19,8 +19,12 @@ CORS(app)
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 # add REST resources
-api.add_resource(ResourceListFactory("entities"), "/entities")
-api.add_resource(ResourceFactory("entities"), "/entities/<string:resource_id>")
+with open("resources/resources.json", "r") as resource_file:
+    resources = json.load(resource_file)
+    for resource_name in resources:
+        api.add_resource(ResourceListFactory(resource_name), f"/{resource_name}")
+        api.add_resource(ResourceFactory(resource_name), f"/{resource_name}/<string:resource_id>")
+
 
 # landing page
 @app.route("/", methods=["GET"])

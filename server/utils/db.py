@@ -142,14 +142,14 @@ def reset() -> str:
     client.drop_database(DATABASE)
 
     # populate testing data
-    with open("utils/testData/entity.json") as f:
+    with open("resources/resources.json") as f:
         sample_data = json.load(f)
 
     client = get_database()
-    for entity in sample_data:
-        result = client["entities"].insert_one(entity)
+    for resource in sample_data:
+        result = client[resource].insert_one(sample_data[resource])
 
-    return f"db reset - test entity id = {result.inserted_id}"
+    return f"db reset - test resource id = {result.inserted_id}"
 
 
 # utility methods

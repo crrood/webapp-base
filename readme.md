@@ -17,9 +17,14 @@ Execute `./install.sh` to:
 3. Run `pip3 install -r requirements.txt` in the `server` directory
 4. Run `docker compose build` in the root directory
 
-## Usage
+## Configuration
 1. Copy .env.example to .env and update with appropriate values, or leave
    unchanged for local testing
+2. Create server/resources/resources.json with sample data for any resources you
+   want to serve.  This is not a schema and won't be enforced, however it will
+   be used to seed the database via the /resetDB endpoint.
+
+## Usage
 1. Execute `./run.sh` to start the docker containers
 2. Visit `http://localhost:8080` in a browser to view the front-end
 3. Curl `http://localhost:8080/api/` via console to interact with the server directly
