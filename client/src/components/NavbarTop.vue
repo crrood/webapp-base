@@ -8,7 +8,7 @@
     </div>
 
     <div class="flex justify-start place-items-center gap-8 text-2xl">
-      <router-link class="" to="/entities">
+      <router-link class="" to="/entity">
         WebApp
       </router-link>
     </div>

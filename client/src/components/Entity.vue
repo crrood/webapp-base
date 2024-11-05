@@ -28,7 +28,7 @@ else {
 
 // methods
 function getEntity(id) {
-  const path = '/entities/' + id;
+  const path = '/entity/' + id;
   axios.get(path)
     .then(res => {
       state.data = res.data;
@@ -58,7 +58,7 @@ function toggleInputs() {
 }
 
 function saveData() {
-  const path = '/entities/' + state.data._id.$oid;
+  const path = '/entity/' + state.data._id.$oid;
   axios.put(path, state.data)
     .then(res => {
       console.log(res.data);

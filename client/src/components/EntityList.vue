@@ -40,7 +40,7 @@ watch(() => state.pageNumber, () => {
 
 const axios = inject('axios');
 function getEntityList(pageNumber) {
-  const path = '/entities?page=' + pageNumber
+  const path = '/entity?page=' + pageNumber
   axios.get(path)
     .then(res => {
       state.entities = res.data;
