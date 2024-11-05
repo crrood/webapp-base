@@ -7,7 +7,7 @@ from flask_cors import CORS
 from flask_restful import Api
 
 # TODO: import resources dynamically from resources folder using importlib
-from resources.Entity import Entity, EntityList
+from resources.ResourceFactory import ResourceFactory, ResourceListFactory
 
 app = Flask(__name__)
 app.config["JSON_SORT_KEYS"] = False
@@ -19,9 +19,8 @@ CORS(app)
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 # add REST resources
-api.add_resource(EntityList, "/entities")
-api.add_resource(Entity, "/entities/<string:resource_id>")
-
+api.add_resource(ResourceListFactory("entities"), "/entities")
+api.add_resource(ResourceFactory("entities"), "/entities/<string:resource_id>")
 
 # landing page
 @app.route("/", methods=["GET"])

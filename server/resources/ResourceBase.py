@@ -17,7 +17,7 @@ class ResourceBase(Resource):
         return db.upsert_document(self.resource_name, data, resource_id)
 
 
-class ResourceBaseList(Resource):
+class ResourceListBase(Resource):
     def __init__(self, resource_name):
         self.resource_name = resource_name
 
