@@ -6,9 +6,8 @@
 	}
 }
 
-{$VITE_SERVER_URL},
-http://127.0.0.1:8080,
-http://localhost:8080 {
+"{$VITE_SERVER_HOST}:{$VITE_SERVER_PORT}"
+{
 	handle_path /api/* {
 		reverse_proxy server:8000
 	}

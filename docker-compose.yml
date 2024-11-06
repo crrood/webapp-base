@@ -48,7 +48,7 @@ services:
       - internal
       - external
     ports:
-      - 8080:8080
+      - ${VITE_SERVER_PORT}:${VITE_SERVER_PORT}
 
 volumes:
   mongodb:
