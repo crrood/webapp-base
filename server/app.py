@@ -2,7 +2,7 @@ import json
 import os
 import logging
 
-import utils.db as db
+import db
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
