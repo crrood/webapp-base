@@ -8,4 +8,4 @@ __pycache__
 config.ini
 *.secret
 mongosh.sh
-server/resources/resources.json
+server/resources.json
