@@ -1,9 +1,8 @@
 import json
 import logging
 import os
-from collections import OrderedDict
 
-from bson import SON, ObjectId, json_util
+from bson import ObjectId, json_util
 from flask import Response, jsonify, make_response
 from pymongo import MongoClient
 
