@@ -10,9 +10,12 @@ class ResourceBase(Resource):
     def get(self, resource_id):
         return db.query_document_by_id(self.resource_name, resource_id)
 
+    def delete(self, resource_id):
+        return db.delete_document(self.resource_name, resource_id)
+
     def put(self, resource_id):
         data = request.get_json()
-        return db.upsert_document(self.resource_name, data, resource_id)
+        return db.upsert_document_by_id(self.resource_name, data, resource_id)
 
 
 class ResourceListBase(Resource):

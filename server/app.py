@@ -18,7 +18,7 @@ CORS(app)
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 # add REST resources
-with open("resources/resources.json", "r") as resource_file:
+with open("resources.json", "r") as resource_file:
     resources = json.load(resource_file)
     for resource_name in resources:
         api.add_resource(ResourceListFactory(resource_name), f"/{resource_name}")
@@ -31,6 +31,12 @@ with open("resources/resources.json", "r") as resource_file:
 @app.route("/", methods=["GET"])
 def landing_page():
     return "Server is up and running!"
+
+
+# test DB
+@app.route("/testDB")
+def test_db():
+    return db.test_db()
 
 
 # nuke all DB entries and replace with test data
