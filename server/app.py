@@ -3,7 +3,7 @@ import logging
 import os
 
 import db
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 from flask_restful import Api
 from resources.ResourceFactory import ResourceFactory, ResourceListFactory
@@ -31,6 +31,12 @@ with open("resources.json", "r") as resource_file:
 @app.route("/", methods=["GET"])
 def landing_page():
     return "Server is up and running!"
+
+
+@app.route("/echo", methods=["PUT"])
+def echo():
+    data = request.get_json()
+    return data
 
 
 # test DB

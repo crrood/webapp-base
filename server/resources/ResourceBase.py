@@ -25,3 +25,7 @@ class ResourceListBase(Resource):
     def get(self):
         page_number = request.args.get("page", default=0, type=int)
         return db.query_collection(self.resource_name, page_number)
+
+    def put(self):
+        data = request.get_json()
+        return db.upsert_document(self.resource_name, data)
