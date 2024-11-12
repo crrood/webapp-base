@@ -1,5 +1,5 @@
-docker compose down
+docker compose --env-file webapp-client/shared/.env down
 docker volume create mongodb
 docker volume create caddy
-docker compose build
-docker compose up
+docker compose --env-file webapp-client/shared/.env build
+docker compose --env-file webapp-client/shared/.env up

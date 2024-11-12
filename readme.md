@@ -14,10 +14,10 @@ If you want faster builds, you can also use npm and pip to install requirements
 locally via `install.sh` before building the containers.
 
 ## Configuration
-1. Run `install.sh` to install requirements and copy .env.example.
-2. Update resources.json with sample data for any resources you want to serve.  
-   This mapping will be used to create endpoints, but is not a schema and won't be 
-   enforced.
+1. Run `install.sh` to install requirements and copy webapp-client/shared/.env.example.
+2. Update webapp-client/shared/resources.json with sample data for any resources 
+   you want to serve.  This mapping will be used to create endpoints, but is not 
+   a schema and won't be enforced.
 
 ## Usage
 1. Execute `./run.sh` to start the docker containers

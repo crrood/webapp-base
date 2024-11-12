@@ -4,10 +4,10 @@ services:
     build:
       context: ./webapp-server
     env_file:
-      - .env
+      - webapp-client/shared/.env
     volumes:
       - ./webapp-server/:/webapp-server
-      - .:/server/config
+      - ./webapp-client/shared/:/server/config
     stop_signal: SIGINT
     depends_on:
       - mongodb
@@ -20,7 +20,7 @@ services:
     build:
       context: ./webapp-client
     env_file:
-      - .env
+      - webapp-client/shared/.env
     volumes:
       - ./webapp-client/:/webapp-client
     stop_signal: SIGTERM
@@ -36,12 +36,12 @@ services:
     networks:
       - internal
     env_file:
-      - .env
+      - webapp-client/shared/.env
 
   caddy:
     image: caddy:2.4.6
     env_file:
-      - .env
+      - webapp-client/shared/.env
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy:/data
