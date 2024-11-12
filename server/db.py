@@ -176,7 +176,8 @@ def reset() -> str:
 
     client = get_database()
     for resource in sample_data:
-        result = client[resource].insert_one(sample_data[resource])
+        for i in range(len(sample_data[resource])):
+            result = client[resource].insert_one(sample_data[resource][i])
 
     return f"db reset - test resource id = {result.inserted_id}"
 
