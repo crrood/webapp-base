@@ -8,6 +8,6 @@ if command -v pip3 2>&1 >/dev/null; then
   pip3 install -r requirements.txt
   cd ..
 fi
-if [ -f ".env" ]; then
+if [ ! -f ".env" ]; then
     cp .env.example .env
 fi
