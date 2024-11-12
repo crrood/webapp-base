@@ -1,3 +1,6 @@
 [submodule "webapp-client"]
 	path = webapp-client
 	url = git@github.com:crrood/webapp-client.git
+[submodule "webapp-server"]
+	path = webapp-server
+	url = git@github.com:crrood/webapp-server.git
