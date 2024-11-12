@@ -2,11 +2,11 @@ services:
   server:
     image: python:3.13-slim
     build:
-      context: ./server
+      context: ./webapp-server
     env_file:
       - .env
     volumes:
-      - ./server/:/server
+      - ./webapp-server/:/webapp-server
       - .:/server/config
     stop_signal: SIGINT
     depends_on:
