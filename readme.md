@@ -14,8 +14,7 @@ If you want faster builds, you can also use npm and pip to install requirements
 locally via `install.sh` before building the containers.
 
 ## Configuration
-1. Copy .env.example to .env and update with appropriate values, or leave
-   unchanged for local testing
+1. Run `install.sh` to install requirements and copy .env.example.
 2. Update resources.json with sample data for any resources you want to serve.  
    This mapping will be used to create endpoints, but is not a schema and won't be 
    enforced.
