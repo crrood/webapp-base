@@ -3,6 +3,9 @@ A simple RESTful full stack web app using a Python + flask backend, Vue +
 Vite front-end, MongoDB database, and Caddy web server.  Containerized via
 Docker.
 
+This repo is a coordinator for separate client and server repos, which are
+meant to be cloned / forked and worked on separately.
+
 ## Requirements
 - Docker
 - Docker compose
