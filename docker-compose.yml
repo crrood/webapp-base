@@ -17,11 +17,11 @@ services:
   client:
     image: node:22.9-slim
     build:
-      context: ./client
+      context: ./webapp-client
     env_file:
       - .env
     volumes:
-      - ./client/:/client
+      - ./webapp-client/:/webapp-client
     stop_signal: SIGTERM
     depends_on:
       - caddy
