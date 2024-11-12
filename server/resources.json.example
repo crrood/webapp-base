@@ -1,10 +1,22 @@
 {
-  "entity": {
-    "key1": "value1",
-    "key2": "value2"
-  },
-  "anotherEntity": {
-    "key3": "value3",
-    "key4": "value4"
-  }
+  "entity": [
+    {
+      "key1": "valueA",
+      "key2": "valueB"
+    },
+    {
+      "key1": "valueC",
+      "key2": "valueD"
+    }
+  ],
+  "anotherEntity": [
+    {
+      "key3": "valueA",
+      "key4": "valueB"
+    },
+    {
+      "key3": "valueC",
+      "key4": "valueD"
+    }
+  ]
 }
