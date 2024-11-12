@@ -13,9 +13,9 @@ locally via `install.sh` before building the containers.
 ## Configuration
 1. Copy .env.example to .env and update with appropriate values, or leave
    unchanged for local testing
-2. Copy server/resources.json.example to server/resources.json with sample 
-   data for any resources you want to serve.  This mapping will be used to create 
-   endpoints, but is not a schema and won't be enforced.
+2. Update resources.json with sample data for any resources you want to serve.  
+   This mapping will be used to create endpoints, but is not a schema and won't be 
+   enforced.
 
 ## Usage
 1. Execute `./run.sh` to start the docker containers

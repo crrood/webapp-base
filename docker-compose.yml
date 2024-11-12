@@ -7,6 +7,7 @@ services:
       - .env
     volumes:
       - ./server/:/server
+      - .:/server/config
     stop_signal: SIGINT
     depends_on:
       - mongodb

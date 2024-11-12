@@ -18,7 +18,7 @@ CORS(app)
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 # add REST resources
-with open("resources.json", "r") as resource_file:
+with open("config/resources.json", "r") as resource_file:
     resources = json.load(resource_file)
     for resource_name in resources:
         api.add_resource(ResourceListFactory(resource_name), f"/{resource_name}")
