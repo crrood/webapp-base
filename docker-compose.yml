@@ -7,7 +7,7 @@ services:
       - webapp-client/shared/.env
     volumes:
       - ./webapp-server/:/webapp-server
-      - ./webapp-client/shared/:/server/config
+      - ./webapp-client/shared/:/config
     stop_signal: SIGINT
     depends_on:
       - mongodb
