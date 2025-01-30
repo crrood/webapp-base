@@ -1,4 +1,4 @@
-[submodule "webapp-client-todo"]
+[submodule "webapp-client"]
 	path = webapp-client
 	url = git@github.com:crrood/webapp-client-todo.git
 [submodule "webapp-server"]
