@@ -25,8 +25,10 @@ locally via before building the containers.
 ## Usage
 1. Execute `./run.sh` to start the docker containers, with the optional `-b`
    flag to build them as well
-2. Visit `http://localhost:8080/todo` in a browser to view the front-end
-3. Curl `http://localhost:8080/api/` via console to interact with the server directly
+2. On the first run, go to `http://localhost:8080/api/resetDB` in a browser or
+   via curl to load the data from `resources.json` into the DB
+3. Visit `http://localhost:8080/todo` in a browser to view the front-end
+4. Curl `http://localhost:8080/api/` via console to interact with the server directly
 
 The server will create endpoints based on the JSON file in
 `webapp-client/shared/resources.json`.  For instance, in the example template
@@ -38,3 +40,5 @@ Each supports several methods:
 - `PUT /entity` -> Creates a new entity, or updates an existing one if the body
   data contains `entity._id.$oid`
 - `DELETE /entity/$id` -> deletes the specified entity
+
+There is also a utility method `/resetDB` which will reset the DB state to match `resources.json`
