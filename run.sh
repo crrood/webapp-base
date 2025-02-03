@@ -1,11 +1,13 @@
+source webapp-client/shared/.env
+MONGODB_VOLUME=mongodb_${ENV}
 docker compose --env-file webapp-client/shared/.env down --volumes
-docker volume create mongodb
+docker volume create $MONGODB_VOLUME
 docker volume create caddy
 while getopts ":b:v" opt; do
   case $opt in
     v)
-      docker volume rm mongodb caddy
-      docker volume create mongodb
+      docker volume rm $MONGODB_VOLUME caddy
+      docker volume create $MONGODB_VOLUME
       docker volume create caddy
       ;;
     b)

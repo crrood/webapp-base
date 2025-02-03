@@ -54,6 +54,7 @@ services:
 volumes:
   mongodb:
     external: true
+    name: mongodb_${ENV}
   caddy:
     external: true
 

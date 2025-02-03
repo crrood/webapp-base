@@ -1,15 +1,17 @@
 {
 	log default {
 		output stdout
-		format json
-		level INFO
+		format json {
+			time_format common_log
+		}
+		level DEBUG
 	}
 }
 
-"{$VITE_SERVER_HOST}:{$VITE_SERVER_PORT}"
-{
+# Needs to use http because the host machine's reverse proxy strips TLS
+"http://{$VITE_SERVER_HOST}:{$VITE_SERVER_PORT}" {
+	reverse_proxy client:5173
 	handle_path /api/* {
 		reverse_proxy server:8000
 	}
-	reverse_proxy client:5173
 }
