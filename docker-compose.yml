@@ -4,30 +4,32 @@ services:
     build:
       context: ./webapp-server
     env_file:
-      - webapp-client/shared/.env
+      - webapp-client/shared/.env.${ENV}
     volumes:
       - ./webapp-server/:/webapp-server
       - ./webapp-client/shared/:/config
     stop_signal: SIGINT
     depends_on:
       - mongodb
-      - caddy
+      - caddy-${ENV}
     networks:
       - internal
 
-  client:
+  client-dev:
     image: node:22.9-slim
     build:
       context: ./webapp-client
     env_file:
-      - webapp-client/shared/.env
+      - webapp-client/shared/.env.${ENV}
     volumes:
       - ./webapp-client/:/webapp-client
     stop_signal: SIGTERM
     depends_on:
-      - caddy
+      - caddy-${ENV}
     networks:
       - internal
+    profiles:
+      - dev
 
   mongodb:
     image: mongo:4.4
@@ -36,20 +38,38 @@ services:
     networks:
       - internal
     env_file:
-      - webapp-client/shared/.env
+      - webapp-client/shared/.env.${ENV}
 
-  caddy:
+  caddy-dev:
     image: caddy:2.4.6
     env_file:
-      - webapp-client/shared/.env
+      - webapp-client/shared/.env.${ENV}
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile.${ENV}:/etc/caddy/Caddyfile
       - caddy:/data
     networks:
       - internal
       - external
     ports:
       - ${VITE_SERVER_PORT}:${VITE_SERVER_PORT}
+    profiles:
+      - dev
+
+  caddy-prod:
+    image: caddy:2.4.6
+    env_file:
+      - webapp-client/shared/.env.${ENV}
+    volumes:
+      - ./Caddyfile.${ENV}:/etc/caddy/Caddyfile
+      - caddy:/data
+      - ./webapp-client/dist:/srv
+    networks:
+      - internal
+      - external
+    ports:
+      - ${VITE_SERVER_PORT}:${VITE_SERVER_PORT}
+    profiles:
+      - prod
 
 volumes:
   mongodb:
@@ -57,6 +77,7 @@ volumes:
     name: mongodb_${ENV}
   caddy:
     external: true
+    name: caddy_${ENV}
 
 networks:
   external:

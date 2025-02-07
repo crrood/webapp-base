@@ -10,7 +10,8 @@
 
 # Needs to use http because the host machine's reverse proxy strips TLS
 "http://{$VITE_SERVER_HOST}:{$VITE_SERVER_PORT}" {
-	reverse_proxy client:5173
+	reverse_proxy client-dev:5173
+
 	handle_path /api/* {
 		reverse_proxy server:8000
 	}
