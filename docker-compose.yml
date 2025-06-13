@@ -4,9 +4,8 @@ services:
     build:
       context: ./webapp-server
     env_file:
-      - webapp-client/shared/.env.${ENV}
+      - ./webapp-client/shared/.env.${ENV}
     volumes:
-      - ./webapp-server/:/webapp-server
       - ./webapp-client/shared/:/config
     stop_signal: SIGINT
     depends_on:
@@ -20,9 +19,7 @@ services:
     build:
       context: ./webapp-client
     env_file:
-      - webapp-client/shared/.env.${ENV}
-    volumes:
-      - ./webapp-client/:/webapp-client
+      - ./webapp-client/shared/.env.${ENV}
     stop_signal: SIGTERM
     depends_on:
       - caddy-${ENV}
