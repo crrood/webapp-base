@@ -23,22 +23,26 @@ locally via before building the containers.
    you want to serve
 
 ## Usage
-1. Execute `./run.sh` to start the docker containers, with the optional `-b`
-   flag to build them as well
+1. Execute `./run.sh -b` to build and start the docker containers
 2. On the first run, go to `http://localhost:8080/api/resetDB` in a browser or
-   via curl to load the data from `resources.json` into the DB
-3. Visit `http://localhost:8080/todo` in a browser to view the front-end
+   via curl to load the data from `resources.json`
+3. Visit `http://localhost:8080/resourceA` in a browser to view the front-end
 4. Curl `http://localhost:8080/api/` via console to interact with the server directly
 
 The server will create endpoints based on the JSON file in
 `webapp-client/shared/resources.json`.  For instance, in the example template
-you'll have `/entity` and `/anotherEntity`.  
+you'll have `/resourceA` and `/resourceB`.  
 
-Each supports several methods:
-- `GET /entity` -> an array of all entities
-- `GET /entity/$id` -> a single entity keyed on `entity._id.$oid`
-- `PUT /entity` -> Creates a new entity, or updates an existing one if the body
-  data contains `entity._id.$oid`
-- `DELETE /entity/$id` -> deletes the specified entity
+Each supports several server-side methods:
+- `GET /api/<resource>` -> an array of all resources
+- `GET /api/<resource>/$id` -> a single resource keyed on `resource._id.$oid`
+- `PUT /api/<resource>` -> Creates a new resource, or updates an existing one if the body
+  data contains `<resource>._id.$oid`
+- `DELETE /api/<resource>/$id` -> deletes the specified resource
 
-There is also a utility method `/resetDB` which will reset the DB state to match `resources.json`
+There is also a utility method `/api/resetDB` which will reset the DB state to match
+`resources.json`, and `/api/testDB` which will run a suite of tests to make sure
+everything's working.
+
+The front-end comes with a basic page to list all the instances of ResourceA and show the
+details of a single one.
