@@ -1,0 +1,22 @@
+{
+	log default {
+		output stdout
+		format json {
+			time_format common_log
+		}
+		level DEBUG
+	}
+}
+
+# Needs to use http because the host machine's reverse proxy strips TLS
+"http://{$VITE_SERVER_HOST}:{$VITE_SERVER_PORT}" {
+	handle {
+		root * /srv
+		file_server
+		try_files {path} /index.html
+	}
+
+	handle_path /api/* {
+		reverse_proxy server:8000
+	}
+}
