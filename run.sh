@@ -18,8 +18,8 @@ else
   ENV_FILE=webapp-client/shared/.env.dev
 fi
 source ${ENV_FILE}
-MONGODB_VOLUME=mongodb_${ENV}
-CADDY_VOLUME=caddy_${ENV}
+MONGODB_VOLUME=mongodb_${COMPOSE_PROJECT_NAME}
+CADDY_VOLUME=caddy_${COMPOSE_PROJECT_NAME}
 docker volume create $MONGODB_VOLUME
 docker volume create $CADDY_VOLUME
 if [ $RESET_CADDY ]; then

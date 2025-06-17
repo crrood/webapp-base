@@ -71,10 +71,10 @@ services:
 volumes:
   mongodb:
     external: true
-    name: mongodb_${ENV}
+    name: mongodb_${COMPOSE_PROJECT_NAME}
   caddy:
     external: true
-    name: caddy_${ENV}
+    name: caddy_${COMPOSE_PROJECT_NAME}
 
 networks:
   external:
